@@ -1,0 +1,11 @@
+version: '3'
+services:
+  postgres:
+    image: postgres:latest
+    container_name: mock-db
+    environment:
+      POSTGRES_DB: mock
+      POSTGRES_USER: mock-root
+      POSTGRES_PASSWORD: mock123
+    ports:
+      - "5433:5432"
