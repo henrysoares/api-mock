@@ -26,6 +26,8 @@ If you have installed 'make', simply type: ```make run```
 
 If you don't have make installed you can type: ```sudo apt-get install make``` to install.
 
+After using any of the alternatives, the application will be up and running on port 8080.
+
 ## How to use
 
 To register a mock, make a post to 'api/mock' endpoint providing the following payload:
