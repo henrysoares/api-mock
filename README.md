@@ -1,7 +1,7 @@
 # Mock App
 This project is a simple configurable mock API that runs on a Tomcat server. This project is still in development, and up to the current moment, it's possible to create mocks for the GET, POST, and PUT methods and configure hardcoded payloads. However, in the near future, this mock can be configured to perform other actions and change the payload to adapt to each request
 
-##How to build and run the project
+## How to build and run the project
 
 This project is a Java 17 project using the Spring Boot framework. To run it with minimal requirements, you need a PostgreSQL database and Java 11. The database requires the following connections:
 
@@ -12,18 +12,18 @@ PORT     = 5432
 
 After that, you can run the API by typing: ```./gradlew :mock-api:bootRun.```
 
-###Other alternative
+### Other alternative
 
 The project is containerized with Docker and is already properly configured, so you can generate the Docker image of the API using the following command: ```sudo docker build -t mock-app:latest .``` in the folder 'mock-api'.
 After that, go to the 'docker' folder and use the following command: 'sudo docker-compose up'.
 
-###Running using makefile (Easiest way)
+### Running using makefile (Easiest way)
 
 If you have installed 'make', simply type: ```make run```
 
 If you don't have make installed you can type: ```sudo apt-get install make``` to install.
 
-##How to use
+## How to use
 
 To register a mock, it is necessary to first register it at the 'api/mock' endpoint with the following payload:
 ```
@@ -42,7 +42,7 @@ To register a mock, it is necessary to first register it at the 'api/mock' endpo
 }
 ```
 
-###Curl:
+### Curl:
 ```
 
 curl --location 'http://localhost:8080/api/mock' \
@@ -64,5 +64,5 @@ curl --location 'http://localhost:8080/api/mock' \
 
 After registering your mock, simply hit the API with the registered method + the beginning of the path with '/mock' + the registered path.
 
-###Exemple:
+### Exemple:
 ```curl --location --request POST 'http://localhost:8080/mock/test/post'```
