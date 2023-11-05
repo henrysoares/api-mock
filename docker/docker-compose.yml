@@ -1,11 +1,25 @@
 version: '3'
 services:
+  mock-api:
+    image: mock-app:latest
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+    networks:
+      - mocknetwork
+
   postgres:
-    image: postgres:latest
+    image: postgres
     container_name: mock-db
     environment:
       POSTGRES_DB: mock
       POSTGRES_USER: mock-root
       POSTGRES_PASSWORD: mock123
     ports:
-      - "5433:5432"
+      - "5432:5432"
+    networks:
+      - mocknetwork
+
+networks:
+  mocknetwork:
