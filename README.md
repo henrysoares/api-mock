@@ -1,4 +1,4 @@
-# api-mock
+# Mock App
 This project is a simple configurable mock API that runs on a Tomcat server. This project is still in development, and up to the current moment, it's possible to create mocks for the GET, POST, and PUT methods and configure hardcoded payloads. However, in the near future, this mock can be configured to perform other actions and change the payload to adapt to each request
 
 ##How to build and run the project
@@ -42,9 +42,9 @@ To register a mock, it is necessary to first register it at the 'api/mock' endpo
 }
 ```
 
-
-```
 ###Curl:
+```
+
 curl --location 'http://localhost:8080/api/mock' \
 --header 'Content-Type: application/json' \
 --data '{
