@@ -4,7 +4,5 @@ spring:
     username: mock-root
     password: mock123
   jpa:
-    database-platform: org.hibernate.dialect.PostgreSQLDialect
-    hibernate:
-      show_sql: true
-      format_sql: true
+    show_sql: true
+    format_sql: true

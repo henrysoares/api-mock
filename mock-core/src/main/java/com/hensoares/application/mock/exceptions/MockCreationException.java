@@ -1,5 +1,8 @@
 package com.hensoares.application.mock.exceptions;
 
+/**
+ * Exception that represents an error on persisting a mock on database.
+ */
 public class MockCreationException extends RuntimeException{
     public MockCreationException(String message, Throwable cause) {
         super(message, cause);

@@ -1,4 +1,4 @@
-package com.hensoares.domain.entity.mock.details;
+package com.hensoares.domain.entity.mock;
 
 import lombok.Getter;
 

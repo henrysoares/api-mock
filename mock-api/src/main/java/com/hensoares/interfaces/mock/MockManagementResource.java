@@ -17,7 +17,7 @@ import static com.hensoares.interfaces.RestConstants.DEFAULT_MOCK_BASE_ENDPOINT;
 
 @RestController
 @RequestMapping(DEFAULT_MOCK_BASE_ENDPOINT)
-public class MockResource {
+public class MockManagementResource {
 
     @Autowired
     MockApplicationService mockApplicationService;
@@ -28,6 +28,5 @@ public class MockResource {
 
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
-
 
 }

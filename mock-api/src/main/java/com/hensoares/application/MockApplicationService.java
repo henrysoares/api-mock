@@ -19,14 +19,13 @@ public class MockApplicationService {
     MockService mockService;
 
     public void createMock(@NonNull final MockCreationRequest request){
-        final var mockDetailsRequest = request.mockDetails();
-
-        var mockDetailsDto = new MockDetailsDTO(
-                mockDetailsRequest.payload(),
-                mockDetailsRequest.workflowType(),
-                mockDetailsRequest.metadata());
-
-        var mockDto = new MockDTO(request.mockName(), request.mockMethodType(), mockDetailsDto);
+        var mockDto = new MockDTO(
+                request.mockName(),
+                request.mockMethodType(),
+                request.payload(),
+                request.path(),
+                request.workflowType(),
+                request.metadata());
 
         mockService.createMock(mockDto);
     }

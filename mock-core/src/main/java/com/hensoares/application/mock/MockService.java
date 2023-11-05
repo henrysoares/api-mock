@@ -1,11 +1,11 @@
 package com.hensoares.application.mock;
 
 import com.hensoares.application.mock.acl.MockDTO;
-import com.hensoares.application.mock.acl.MockDetailsDTO;
 import com.hensoares.application.mock.assemblers.MockAssembler;
 import com.hensoares.application.mock.exceptions.MockCreationException;
+import com.hensoares.application.mock.exceptions.MockNotFoundException;
 import com.hensoares.domain.entity.mock.Mock;
-import com.hensoares.domain.entity.mock.details.MockDetails;
+import com.hensoares.domain.entity.mock.MockMethodType;
 import com.hensoares.domain.entity.mock.repository.MockRepository;
 import lombok.AccessLevel;
 import lombok.NonNull;
@@ -15,6 +15,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+/**
+ * Service class that contains all the logic for creating, executing, and managing the mock.
+ */
 @Service
 @RequiredArgsConstructor(onConstructor_ = @Autowired)
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
@@ -25,12 +28,13 @@ public class MockService {
 
     MockAssembler mockAssembler;
 
+    /**
+     * Method responsible for creating and persisting mock entity on database.
+     * @param mockDTO Mock request.
+     */
     public void createMock(@NonNull final MockDTO mockDTO){
         try{
             final Mock mock = mockAssembler.assemble(mockDTO);
-            final MockDetails mockDetails = mockAssembler.assembleMockDetails(mockDTO.mockDetails(), mock);
-
-            mock.setMockDetails(mockDetails);
 
             mockRepository.save(mock);
             log.info("Mock successfully created.");
@@ -39,6 +43,10 @@ public class MockService {
 
             throw new MockCreationException(exception);
         }
+    }
+
+    public Mock findMockByPathAndMethod(@NonNull final String path, @NonNull final MockMethodType methodType){
+        return mockRepository.findByPathAndMethod(path, methodType).orElseThrow(MockNotFoundException::new);
     }
 
 }
