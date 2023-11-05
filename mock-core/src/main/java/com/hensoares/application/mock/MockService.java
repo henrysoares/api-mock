@@ -46,7 +46,8 @@ public class MockService {
     }
 
     public Mock findMockByPathAndMethod(@NonNull final String path, @NonNull final MockMethodType methodType){
-        return mockRepository.findByPathAndMethod(path, methodType).orElseThrow(MockNotFoundException::new);
+        return mockRepository.findByPathAndMethod(path, methodType)
+                .orElseThrow(()-> new MockNotFoundException(path, methodType));
     }
 
 }

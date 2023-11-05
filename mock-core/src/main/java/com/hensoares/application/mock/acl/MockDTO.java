@@ -11,6 +11,7 @@ import lombok.NonNull;
 public record MockDTO(@NonNull String mockName,
                       @NonNull MockMethodType mockMethodType,
                       JsonNode payload,
+                      int status,
                       String path,
                       @NonNull WorkflowType workflowType,
                       JsonNode metadata) {

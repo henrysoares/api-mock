@@ -14,6 +14,7 @@ public record MockCreationRequest(
         @NonNull String mockName,
         @NonNull MockMethodType mockMethodType,
         @NonNull JsonNode payload,
+        int status,
         @NonNull String path,
         WorkflowType workflowType,
         JsonNode metadata) {

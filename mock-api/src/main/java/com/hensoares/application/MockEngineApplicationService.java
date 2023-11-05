@@ -2,6 +2,7 @@ package com.hensoares.application;
 
 import com.hensoares.application.engine.MockProcessingContext;
 import com.hensoares.application.engine.MockServiceEngine;
+import com.hensoares.application.mock.acl.MockDTO;
 import com.hensoares.domain.entity.mock.MockMethodType;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.AccessLevel;
@@ -22,7 +23,7 @@ public class MockEngineApplicationService {
 
     MockServiceEngine mockServiceEngine;
 
-    public String processGetRequests(@NonNull HttpServletRequest request){
+    public MockDTO processGetRequests(@NonNull HttpServletRequest request){
         final MockMethodType methodType = MockMethodType.parseString(request.getMethod());
         final String path = parsePath(request.getServletPath());
 

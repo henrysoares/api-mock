@@ -31,6 +31,7 @@ public class MockAssembler {
                 .method(mockDTO.mockMethodType())
                 .isActive(true)
                 .payload(payload)
+                .status(mockDTO.status())
                 .metadata(metadata)
                 .path(mockDTO.path())
                 .workflow(mockDTO.workflowType())

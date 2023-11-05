@@ -23,6 +23,7 @@ public class MockApplicationService {
                 request.mockName(),
                 request.mockMethodType(),
                 request.payload(),
+                request.status(),
                 request.path(),
                 request.workflowType(),
                 request.metadata());

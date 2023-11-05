@@ -22,6 +22,22 @@ public class MockEngineResource {
 
         final var response = mockEngineApplicationService.processGetRequests(request);
 
-        return ResponseEntity.status(200).body(response);
+        return ResponseEntity.status(response.status()).body(response.payload());
+    }
+
+    @RequestMapping(value = "/mock/**", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> handlePostMapping(@NonNull HttpServletRequest request){
+
+        final var response = mockEngineApplicationService.processGetRequests(request);
+
+        return ResponseEntity.status(response.status()).body(response.payload());
+    }
+
+    @RequestMapping(value = "/mock/**", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> handlePutMapping(@NonNull HttpServletRequest request){
+
+        final var response = mockEngineApplicationService.processGetRequests(request);
+
+        return ResponseEntity.status(response.status()).body(response.payload());
     }
 }

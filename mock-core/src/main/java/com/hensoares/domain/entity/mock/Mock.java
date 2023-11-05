@@ -62,6 +62,9 @@ public class Mock {
     @Column(name = "PAYLOAD")
     String payload;
 
+    @Column(name = "STATUS")
+    int status;
+
     @Column(name = "WORKFLOW_SCRIPT")
     @Enumerated(EnumType.STRING)
     WorkflowType workflow;
