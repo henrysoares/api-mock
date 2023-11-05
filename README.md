@@ -4,11 +4,12 @@ This project is a simple configurable mock API that runs on a Tomcat server. Thi
 ## How to build and run the project
 
 This project is a Java 17 project using the Spring Boot framework. To run it with minimal requirements, you need a PostgreSQL database and Java 17 JRE. The database requires the following connections:
-
+```
 DATABASE = mock
 USERNAME = mock-root
 PASSWORD = mock123
 PORT     = 5432
+```
 
 (Can be changed on the application.yml)
 
